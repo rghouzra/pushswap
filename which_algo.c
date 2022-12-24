@@ -99,7 +99,7 @@ int	try_the_best_algo(t_list **a, int s, t_instruction **move)
 	sort_stack(&x.copy, &x.size, &x.tmp, 4);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
 		return (4);
-	return (ft_lstclear(&x.copy, &x.tmp), 7);
+	return (ft_lstclear(&x.copy, &x.tmp), second_try(a, s, move));
 }
 
 void	which_algo(t_list **a, int *size, t_instruction **move)
@@ -117,6 +117,7 @@ void	which_algo(t_list **a, int *size, t_instruction **move)
 		else
 		{
 			div = try_the_best_algo(a, *size, move);
+			fprintf(stderr, "div:%d\n", div);
 			sort_stack(a, size, move, div);
 		}
 	}

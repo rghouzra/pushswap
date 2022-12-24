@@ -31,3 +31,30 @@ bool	issorted(t_list *s, int size)
 	}
 	return (true);
 }
+
+int	second_try(t_list **a, int s, t_instruction **move)
+{
+	t_algo	x;
+
+	x.copy = dup_list(*a);
+	x.tmp = dup_move(*move);
+	x.size = s;
+	sort_stack(&x.copy, &x.size, &x.tmp, 7);
+	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
+		return (7);
+	ft_lstclear(&x.copy, &x.tmp);
+	x.copy = dup_list(*a);
+	x.tmp = dup_move(*move);
+	x.size = s;
+	sort_stack(&x.copy, &x.size, &x.tmp, 8);
+	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
+		return (8);
+	ft_lstclear(&x.copy, &x.tmp);
+	x.copy = dup_list(*a);
+	x.tmp = dup_move(*move);
+	x.size = s;
+	sort_stack(&x.copy, &x.size, &x.tmp, 9);
+	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
+		return (9);
+	return (ft_lstclear(&x.copy, &x.tmp), 6);
+}
