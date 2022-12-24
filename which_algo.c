@@ -6,7 +6,7 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:03:34 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/08 06:03:37 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:29:35 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ void	which_algo(t_list **a, int *size, t_instruction **move)
 		else
 		{
 			div = try_the_best_algo(a, *size, move);
-			fprintf(stderr, "div:%d\n", div);
 			sort_stack(a, size, move, div);
 		}
 	}

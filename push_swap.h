@@ -6,7 +6,7 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:01:55 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/22 18:43:50 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:29:53 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void				ft_lstclear(t_list **lst, t_instruction **move);
 void				ft_putmove(t_instruction *move);
 void				strings_cleaner(char **s);
 int					peek(t_list *s);
-int	read_moves(t_instruction *move);
+int					read_moves(t_instruction *move);
 t_list				*dup_list(t_list *a);
 t_instruction		*dup_move(t_instruction *move);
 void				exit_with_cleaner(char *s, t_list **lst, t_list **lst2);
