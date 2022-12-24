@@ -6,7 +6,7 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:26:49 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/22 19:51:56 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/24 11:19:44 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,20 @@ void	short_b_sort(t_sorting *x, t_instruction **move)
 		if (x->b->index <= x->pv2
 			&& x->b->index < x->b->next->index)
 			ft_moveadd_back(move, rotate_a(&x->b, 2));
-		if (ft_lstlast(x->b)->index > x->pv2)
-			ft_moveadd_back(move, revers_rotat_a(&x->b, 2));
-		if (x->b->index < x->b->next->index)
+		if (x->b->index == x->b->next->index - 1)
 			ft_moveadd_back(move, swap_ab(&x->b, 2));
 	}
 }
 
-void	sort_stack(t_list **a, int *size, t_instruction **moves)
+void	sort_stack(t_list **a, int *size, t_instruction **moves, int div)
 {	
 	t_sorting	x;
 
 	sort_struct_init(&x, *size);
 	while (*size > 3 && !issorted(*a, *size))
 	{
-		x.pv1 = ((*size / (x.s))) + x.size_b;
-		x.pv2 = (*size / ((x.s) * 2)) + x.size_b;
+		x.pv1 = ((*size / (div))) + x.size_b;
+		x.pv2 = (*size / ((div) * 2)) + x.size_b;
 		while (x.c <= x.pv1)
 		{
 			short_b_sort(&x, moves);

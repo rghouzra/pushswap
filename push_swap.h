@@ -65,6 +65,12 @@ typedef struct s_sorting
 	int		keep;
 	int		size_b;
 }t_sorting;
+typedef struct s_algo
+{
+	int				size;
+	t_list			*copy;
+	t_instruction	*tmp;
+}t_algo;
 void				sort_5(t_list **stack_a, t_instruction **move);
 void				go_to_instruction(char *s1, t_list **a, t_list **b);
 void				sort_struct_init(t_sorting *p, int size);
@@ -111,7 +117,7 @@ int					parsing(t_list **stack, int ac, char **av);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
 void				sort_stack(t_list **stack_a, int *size, \
-t_instruction **moves);
+t_instruction **moves, int div);
 int					ft_lstsize(t_instruction *lst);
 t_instruction		*revers_rotat_a(t_list **a, int option);
 #endif
