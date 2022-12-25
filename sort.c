@@ -44,6 +44,7 @@ void	sort_stack(t_list **a, int *size, t_instruction **moves, int div)
 	{
 		x.pv1 = ((*size / (div))) + x.size_b;
 		x.pv2 = (*size / ((div * 2))) + x.size_b;
+		fprintf(stderr, "pv1:%d\tpv2:%d\tsize_b:%d\tsize:%d\n",x.pv1, x.pv2, x.size_b,*size);
 		while (x.c <= x.pv1)
 		{
 			short_b_sort(&x, moves);
