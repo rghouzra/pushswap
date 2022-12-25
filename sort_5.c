@@ -6,11 +6,23 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 14:40:05 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/18 14:40:08 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/25 17:47:13 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	clear_stack_b(t_list **b)
+{
+	t_list	*tmp;
+
+	while (*b)
+	{
+		tmp = (*b);
+		(*b) = (*b)->next;
+		free(tmp);
+	}
+}
 
 void	sort_5(t_list **stack_a, t_instruction **move)
 {
@@ -37,4 +49,5 @@ void	sort_5(t_list **stack_a, t_instruction **move)
 		ft_moveadd_back(move, push_ab(stack_a, &p.b, 1));
 		p.size_b--;
 	}
+	clear_stack_b(&p.b);
 }

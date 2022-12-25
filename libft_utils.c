@@ -6,7 +6,7 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:00:15 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/08 06:00:18 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:20:04 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_lstclear(t_list **lst, t_instruction **move)
 	t_list			*tmp;
 	t_instruction	*tmp2;
 
-	if (!*lst || !*move)
-		return ;
 	while (*lst)
 	{
 		tmp = *lst;

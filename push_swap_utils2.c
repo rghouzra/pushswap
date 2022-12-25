@@ -6,7 +6,7 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 14:39:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/18 14:39:55 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:25:12 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,20 @@ int	second_try(t_list **a, int s, t_instruction **move)
 	x.size = s;
 	sort_stack(&x.copy, &x.size, &x.tmp, 7);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
-		return (7);
+		return (ft_lstclear(&x.copy, &x.tmp), 7);
 	ft_lstclear(&x.copy, &x.tmp);
 	x.copy = dup_list(*a);
 	x.tmp = dup_move(*move);
 	x.size = s;
 	sort_stack(&x.copy, &x.size, &x.tmp, 8);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
-		return (8);
+		return (ft_lstclear(&x.copy, &x.tmp), 8);
 	ft_lstclear(&x.copy, &x.tmp);
 	x.copy = dup_list(*a);
 	x.tmp = dup_move(*move);
 	x.size = s;
 	sort_stack(&x.copy, &x.size, &x.tmp, 9);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
-		return (9);
+		return (ft_lstclear(&x.copy, &x.tmp), 9);
 	return (ft_lstclear(&x.copy, &x.tmp), 6);
 }

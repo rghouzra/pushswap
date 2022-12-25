@@ -34,12 +34,17 @@ BONUS_SOURCES = main_bonus.c\
 				push_swap_utils.c\
 				bonus_garbage.c\
 				libft_utils5.c\
-				handle_instruction_bonus.c
+				handle_instruction_bonus.c\
+				which_algo.c\
+				sort_5.c\
+				sort_3.c\
+				sort.c\
+				increment.c
 
 OBJECTS = $(SOURCES:.c=.o)
 BONUS_OBJ = $(BONUS_SOURCES:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
-#CFLAGS = -fsanitize=address -fno-omit-frame-pointer
+# CFLAGS = -fsanitize=address -fno-omit-frame-pointer
 HEADER = push_swap.h get_next_line.h
 
 all: $(NAME)

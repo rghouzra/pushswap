@@ -33,7 +33,7 @@ int	check_dup(char **s)
 		while (j < str_counter(s))
 		{
 			if (tab[i] == tab[j])
-				return (-1);
+				return (free(tab), -1);
 			j++;
 		}
 	}

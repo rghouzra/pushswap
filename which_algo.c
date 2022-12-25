@@ -6,7 +6,7 @@
 /*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:03:34 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/24 20:29:35 by rghouzra         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:24:06 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,26 @@ int	try_the_best_algo(t_list **a, int s, t_instruction **move)
 	x.size = s;
 	sort_stack(&x.copy, &x.size, &x.tmp, 5);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
-		return (5);
+		return (ft_lstclear(&x.copy, &x.tmp), 5);
 	ft_lstclear(&x.copy, &x.tmp);
 	x.copy = dup_list(*a);
 	x.tmp = dup_move(*move);
 	x.size = s;
 	sort_stack(&x.copy, &x.size, &x.tmp, 6);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
-		return (6);
+		return (ft_lstclear(&x.copy, &x.tmp), 6);
 	ft_lstclear(&x.copy, &x.tmp);
 	x.copy = dup_list(*a);
 	x.tmp = dup_move(*move);
 	x.size = s;
 	sort_stack(&x.copy, &x.size, &x.tmp, 4);
 	if (ft_lstsize(x.tmp) - read_moves(x.tmp) <= 5500)
-		return (4);
+		return (ft_lstclear(&x.copy, &x.tmp), 4);
 	return (ft_lstclear(&x.copy, &x.tmp), second_try(a, s, move));
 }
 
 void	which_algo(t_list **a, int *size, t_instruction **move)
 {
-	int	div;
-
 	if (!*a)
 		return ;
 	if (issorted(*a, *size))
@@ -116,8 +114,10 @@ void	which_algo(t_list **a, int *size, t_instruction **move)
 			sort_5(a, move);
 		else
 		{
-			div = try_the_best_algo(a, *size, move);
-			sort_stack(a, size, move, div);
+			if (*size >= 200)
+				sort_stack(a, size, move, try_the_best_algo(a, *size, move));
+			else
+				sort_stack(a, size, move, 3);
 		}
 	}
 	else

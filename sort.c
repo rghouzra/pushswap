@@ -73,9 +73,9 @@ void	second_sort(t_list **a, t_list**b, t_instruction **move)
 	while (b_size)
 	{
 		index = index_in_stack(*b, max);
-		if ((*b)->index != max && index > max / 2)
+		if ((*b)->index != max && index > b_size / 2)
 			ft_moveadd_back(move, revers_rotat_a(b, 2));
-		if ((*b)->index != max && index <= max / 2)
+		if ((*b)->index != max && index <= b_size / 2)
 			ft_moveadd_back(move, rotate_a(b, 2));
 		if (max == (*b)->index)
 		{
