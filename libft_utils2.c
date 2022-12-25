@@ -43,9 +43,11 @@ long	ft_atoi(const char *nptr)
 	}
 	while ((*(nptr + i) >= '0' && *(nptr + i) <= '9') && *(nptr + i))
 	{
-			n *= 10;
-			n += *(nptr + i) - 48;
-			i++;
+		n *= 10;
+		if (n <= -2147483648 || n >= 2147483647)
+			return (2147483649);
+		n += *(nptr + i) - 48;
+		i++;
 	}
 	return (n * sign);
 }

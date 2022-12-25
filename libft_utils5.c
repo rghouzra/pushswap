@@ -27,8 +27,8 @@ int	check_dup(char **s)
 	i = -1;
 	while (++i < str_counter(s))
 	{
-		if (tab[i] >= INT_MAX || tab[i] <= INT_MIN)
-			return (-1);
+		if (tab[i] > 2147483647 || tab[i] < -2147483648)
+			return (free(tab), -1);
 		j = i + 1;
 		while (j < str_counter(s))
 		{

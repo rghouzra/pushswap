@@ -43,7 +43,7 @@ void	sort_stack(t_list **a, int *size, t_instruction **moves, int div)
 	while (*size > 3 && !issorted(*a, *size))
 	{
 		x.pv1 = ((*size / (div))) + x.size_b;
-		x.pv2 = (*size / ((div) * 2)) + x.size_b;
+		x.pv2 = (*size / ((div * 2))) + x.size_b;
 		while (x.c <= x.pv1)
 		{
 			short_b_sort(&x, moves);
